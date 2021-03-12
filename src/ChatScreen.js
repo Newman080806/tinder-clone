@@ -1,4 +1,10 @@
-import { Avatar } from "@material-ui/core";
+import {
+  Avatar,
+  Button,
+  FormControl,
+  InputLabel,
+  Input,
+} from "@material-ui/core";
 import React, { useState } from "react";
 import "./ChatScreen.css";
 
@@ -11,7 +17,7 @@ function ChatScreen() {
       message: "Yoooo",
     },
     {
-      name: "test",
+      name: "T N",
       image: "...",
       message: "sike",
     },
@@ -29,7 +35,7 @@ function ChatScreen() {
 
   return (
     <div className="chatScreen">
-      <p className="chatScreen__timestamp">YOU LIKED SMALLFOOT</p>
+      <p className="chatScreen__timestamp">WELCOME TO THE MESSAGE PAGE</p>
       {messages.map((message) =>
         message.name ? (
           <div className="chatScreen__message">
@@ -48,20 +54,26 @@ function ChatScreen() {
       )}
 
       <form className="chatScreen__input">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="chatScreen__inputField"
-          placeholder="Type a message..."
-          type="text"
-        />
-        <button
-          onClick={handleSend}
-          type="submit"
-          className="chatScreen__inputButton"
-        >
-          SEND
-        </button>
+        <FormControl>
+          <InputLabel className="chatScreen__inputLabel">
+            Type a message.....
+          </InputLabel>
+          <Input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="chatScreen__inputField"
+            placeholder="Type a message..."
+            type="text"
+          />
+          <Button
+            disabled={!input}
+            onClick={handleSend}
+            type="submit"
+            className="chatScreen__inputButton"
+          >
+            SEND
+          </Button>
+        </FormControl>
       </form>
     </div>
   );
